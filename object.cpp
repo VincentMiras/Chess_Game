@@ -15,7 +15,10 @@ Object::Object(std::vector<glm::vec3> vertices, std::vector<glm::vec2> uvs, std:
      m_vb = new VertexBuffer(vertices);
      m_uvsb = new UVBuffer(uvs);
 
-     m_texture = new Texture(texturePath);
+     if (!texturePath.empty())
+         {
+             m_texture = new Texture(texturePath);
+         }
 
 }
 

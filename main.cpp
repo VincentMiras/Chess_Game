@@ -9,6 +9,7 @@
 #include "vertexarray.h"
 #include "shader.h"
 #include "renderer.h"
+#include "board.h"
 
 
 
@@ -105,8 +106,10 @@ int main()
        glm::vec2( 1,0)
     };
 
-    Object o(g_vertex_buffer_data, g_uv_buffer_data, path+"/textures/damier.jpg");
+    Object o(g_vertex_buffer_data, g_uv_buffer_data, path+"/textures/damier2.jpg");
 
+    Board board;
+    board.initialize();
 
 
 
@@ -136,6 +139,14 @@ int main()
         ////////////////On commence par vider les buffers///////////////
         renderer.Clear();
         renderer.Draw(va, o, shader);
+        for (int row = 0; row < 8; ++row) {
+            for (int col = 0; col < 8; ++col) {
+                Pion* piece = board.getPiece(row, col); // Récupère la pièce sur la case
+                if (piece) { // Vérifie si une pièce existe
+                    renderer.Draw(piece->va,);
+                }
+            }
+        }
 
         ////////////////Partie rafraichissement de l'image et des évènements///////////////
         //Swap buffers : frame refresh
