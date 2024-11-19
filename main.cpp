@@ -108,8 +108,10 @@ int main()
 
     Object o(g_vertex_buffer_data, g_uv_buffer_data, path+"/textures/damier2.jpg");
 
+
     Board board;
-    board.initialize();
+    board.initialize(path);
+    std::vector<std::pair<Pion, Object>> pieces = board.initializePieces(path);
 
 
 
@@ -139,14 +141,14 @@ int main()
         ////////////////On commence par vider les buffers///////////////
         renderer.Clear();
         renderer.Draw(va, o, shader);
-        for (int row = 0; row < 8; ++row) {
-            for (int col = 0; col < 8; ++col) {
-                Pion* piece = board.getPiece(row, col); // Récupère la pièce sur la case
-                if (piece) { // Vérifie si une pièce existe
-                    renderer.Draw(piece->va,);
+        for (auto& pair : pieces) {
+                    Pion& piece = pair.first;
+                    Object& object = pair.second;
+
+                    object.Bind();  // Bind l'Object (sommet, UV, texture)
+                    renderer.Draw(va, object, shader);  // Dessiner l'objet
                 }
-            }
-        }
+
 
         ////////////////Partie rafraichissement de l'image et des évènements///////////////
         //Swap buffers : frame refresh

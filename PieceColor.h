@@ -2,7 +2,7 @@
 #define PIECECOLOR_H
 
 enum class PieceColor{
-    Black, White
+    Black, White, None
 };
 
 #endif // PIECECOLOR_H

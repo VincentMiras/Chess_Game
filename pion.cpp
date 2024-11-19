@@ -1,6 +1,8 @@
 #include "pion.h"
 
-Pion::Pion(PieceType t, PieceColor c, int r, int cl){
+Pion::Pion(int r /*= -1*/, int cl /*= -1*/, PieceType t /*= PieceType::None*/, PieceColor c /*= PieceColor::None*/)
+    : row(r), col(cl), type(t), color(c), uvertices(std::vector<glm::vec2>()) {
+
     switch (type) {
         case PieceType::Pawn:
             vertices = createCircle(0.1f, 30);
@@ -20,7 +22,21 @@ Pion::Pion(PieceType t, PieceColor c, int r, int cl){
         case PieceType::King:
             vertices = createCircle(0.3f, 30);
             break;
+        case PieceType::None:
+            vertices = {};
+            break;
     }
+
+    uvertices = convertVec3ToVec2();
+}
+
+
+Pion::Pion()
+    : row(-1), col(-1), type(PieceType::None), color(PieceColor::None), uvertices(std::vector<glm::vec2>()) {
+
+    // Dans le cas où la pièce est de type "None", pas de forme géométrique
+    vertices = {};  // Ou une initialisation spécifique si nécessaire
+    uvertices = convertVec3ToVec2();
 }
 
 
@@ -56,10 +72,20 @@ std::vector<glm::vec3> Pion::createRectangle(float width, float height) {
     return vertices;
 }
 
-glm::vec3 Pion::getColor()  {
-    if (color == PieceColor::White)
-        return glm::vec3(1.0f, 1.0f, 1.0f);  // Blanc
-    return glm::vec3(0.0f, 0.0f, 0.0f);      // Noir
+std::vector<glm::vec2> Pion::convertVec3ToVec2() {
+    std::vector<glm::vec2> uvertices;
+    for (const auto& vec3 : vertices) {
+        uvertices.emplace_back(vec3.x, vec3.y);
+    }
+    return uvertices;
+}
+
+PieceColor Pion::getColor() {
+    return color;  // Retourne la couleur de la pièce, qui est de type PieceColor
+}
+
+PieceType Pion::getType() {
+    return type;  // Retourne la couleur de la pièce, qui est de type PieceColor
 }
 
 glm::vec3 Pion::getOpenGLPosition() {
@@ -67,24 +93,4 @@ glm::vec3 Pion::getOpenGLPosition() {
     float x = -1.0f + col * squareSize + squareSize / 2.0f; // Centre de la case
     float y = -1.0f + row * squareSize + squareSize / 2.0f; // Centre de la case
     return glm::vec3(x, y, 0.1f); // Position Z légèrement supérieure pour apparaître sur le damier
-}
-
-void Pion::draw(Renderer& renderer, Shader& shader) {
-    shader.setUniform3fv("color", getColor());
-
-    // Créer un VertexBuffer avec les vertices de la pièce
-    VertexBuffer vb(vertices);  // `vertices` est votre std::vector<glm::vec3> dans la classe Pion
-    vb.Bind();
-
-    // Créer un VertexArray et lier le VertexBuffer
-    VertexArray va;
-    va.Bind();
-    va.AddBuffer(vb, 0);  // Ajouter le buffer de vertices à l'index 0 du VertexArray
-
-    // Lier la texture si nécessaire (vous pouvez définir des textures pour chaque pièce)
-    // Par exemple, si vous avez un objet `Texture`, vous pouvez l'utiliser ici
-    // Assurez-vous que la texture est liée dans votre shader avec `shader.setUniform1i("texture", 0);`
-
-    // Dessiner avec le renderer
-    renderer.Draw(va);  // Utilisez l'objet `VertexArray` pour le dessin
 }
