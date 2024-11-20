@@ -1,0 +1,13 @@
+#ifndef ROOK_H
+#define ROOK_H
+
+#include "piece.h"
+
+class Rook : public Piece
+{
+public:
+    Rook(PieceColor color, glm::vec2 pos);
+    std::vector<glm::vec2> MouvPossible() const override;
+};
+
+#endif // ROOK_H

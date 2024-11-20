@@ -1,8 +1,9 @@
 #ifndef PIECECOLOR_H
 #define PIECECOLOR_H
 
-enum class PieceColor{
-    Black, White, None
+enum class PieceColor {
+    WHITE,
+    BLACK
 };
 
 #endif // PIECECOLOR_H

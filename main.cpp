@@ -10,6 +10,7 @@
 #include "shader.h"
 #include "renderer.h"
 #include "board.h"
+#include "game.h"
 
 
 
@@ -89,12 +90,12 @@ int main()
 
 
     std::vector<glm::vec3> g_vertex_buffer_data = {
-       glm::vec3(-1.0f, -1.0f, 0.0f),
-       glm::vec3( 1.0f, -1.0f, 0.0f),
-       glm::vec3( 1.0f,  1.0f, 0.0f),
-       glm::vec3(-1.0f, -1.0f, 0.0f),
-       glm::vec3(-1.0f,  1.0f, 0.0f),
-       glm::vec3( 1.0f,  1.0f, 0.0f)
+       glm::vec3(-0.8f, -0.8f, 0.0f),
+       glm::vec3( 0.8f, -0.8f, 0.0f),
+       glm::vec3( 0.8f,  0.8f, 0.0f),
+       glm::vec3(-0.8f, -0.8f, 0.0f),
+       glm::vec3(-0.8f,  0.8f, 0.0f),
+       glm::vec3( 0.8f,  0.8f, 0.0f)
     };
 
     std::vector<glm::vec2> g_uv_buffer_data = {
@@ -109,9 +110,9 @@ int main()
     Object o(g_vertex_buffer_data, g_uv_buffer_data, path+"/textures/damier2.jpg");
 
 
-    Board board;
-    board.initialize(path);
-    std::vector<std::pair<Pion, Object>> pieces = board.initializePieces(path);
+    Game partie=Game();
+    partie.initialise_game();
+
 
 
 
@@ -141,13 +142,7 @@ int main()
         ////////////////On commence par vider les buffers///////////////
         renderer.Clear();
         renderer.Draw(va, o, shader);
-        for (auto& pair : pieces) {
-                    Pion& piece = pair.first;
-                    Object& object = pair.second;
-
-                    object.Bind();  // Bind l'Object (sommet, UV, texture)
-                    renderer.Draw(va, object, shader);  // Dessiner l'objet
-                }
+        partie.Make_a_move();
 
 
         ////////////////Partie rafraichissement de l'image et des évènements///////////////
