@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 #include "glm/glm.hpp"
 #include <vector>
+#include <filesystem>
 
 #include "vertexbuffer.h"
 #include "vertexarray.h"

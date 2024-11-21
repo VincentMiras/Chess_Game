@@ -3,15 +3,12 @@
 Pawn::Pawn(PieceColor color, glm::vec2 pos) : Piece(color,pos){
 
     float center_tile_x=-0.8f+(pos.x-1)*0.2f+0.1f;
-    float center_tile_f=-0.8f+(pos.y-1)*0.2f+0.1f;
+    float center_tile_y=-0.8f+(pos.y-1)*0.2f+0.1f;
 
     forme = {
-        glm::vec3(center_tile_x-0.07f, center_tile_f-0.07f, 0.0f),
-        glm::vec3(center_tile_x+0.07f, center_tile_f-0.07f, 0.0f),
-        glm::vec3(center_tile_x+0.07f, center_tile_f+0.07f, 0.0f),
-        glm::vec3(center_tile_x-0.07f, center_tile_f-0.07f, 0.0f),
-        glm::vec3(center_tile_x-0.07f, center_tile_f+0.07f, 0.0f),
-        glm::vec3(center_tile_x+0.07f, center_tile_f+0.07f, 0.0f)
+        glm::vec3(center_tile_x - 0.05f, center_tile_y-0.05, 0.0f),
+        glm::vec3(center_tile_x + 0.05f, center_tile_y-0.05, 0.0f),
+        glm::vec3(center_tile_x, center_tile_y + 0.05f, 0.0f)
     };
 
     buffer_image = {
@@ -61,14 +58,11 @@ std::vector<glm::vec2> Pawn::getbuffer_image() const {
 
 void Pawn::updateforme() {
     float center_tile_x=-0.8f+(pos.x-1)*0.2f+0.1f;
-    float center_tile_f=-0.8f+(pos.y-1)*0.2f+0.1f;
+    float center_tile_y=-0.8f+(pos.y-1)*0.2f+0.1f;
 
     forme = {
-        glm::vec3(center_tile_x-0.07f, center_tile_f-0.07f, 0.0f),
-        glm::vec3(center_tile_x+0.07f, center_tile_f-0.07f, 0.0f),
-        glm::vec3(center_tile_x+0.07f, center_tile_f+0.07f, 0.0f),
-        glm::vec3(center_tile_x-0.07f, center_tile_f-0.07f, 0.0f),
-        glm::vec3(center_tile_x-0.07f, center_tile_f+0.07f, 0.0f),
-        glm::vec3(center_tile_x+0.07f, center_tile_f+0.07f, 0.0f)
+        glm::vec3(center_tile_x - 0.05f, center_tile_y-0.05, 0.0f),
+        glm::vec3(center_tile_x + 0.05f, center_tile_y-0.05, 0.0f),
+        glm::vec3(center_tile_x, center_tile_y + 0.05f, 0.0f)
     };
 }
