@@ -89,7 +89,7 @@ int main()
 /////////////////////////Création des formes à afficher/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    std::vector<glm::vec3> g_vertex_buffer_data = {
+    std::vector<glm::vec3> vb_board = {
        glm::vec3(-0.8f, -0.8f, 0.0f),
        glm::vec3( 0.8f, -0.8f, 0.0f),
        glm::vec3( 0.8f,  0.8f, 0.0f),
@@ -106,8 +106,10 @@ int main()
        glm::vec2( 0,0),
        glm::vec2( 1,0)
     };
+    std::string texture_blanc = path+"/textures/white.jpg";
+    std::string texture_noir = path+"/textures/black.jpg";
 
-    Object o(g_vertex_buffer_data, g_uv_buffer_data, path+"/textures/damier2.jpg");
+    Object o(vb_board, g_uv_buffer_data, path+"/textures/damier2.jpg");
 
 
     Game partie=Game();
@@ -142,6 +144,12 @@ int main()
         ////////////////On commence par vider les buffers///////////////
         renderer.Clear();
         renderer.Draw(va, o, shader);
+        for (Piece* piece:partie.etat_jeu.list_pieces){
+            Object p(piece., g_uv_buffer_data, path+"/textures/damier2.jpg");
+
+            renderer.Draw(va, o, shader);
+        }
+
         partie.Make_a_move();
 
 

@@ -1,6 +1,25 @@
 #include "bishop.h"
 
-Bishop::Bishop(PieceColor color, glm::vec2 pos) : Piece(color,pos){}
+Bishop::Bishop(PieceColor color, glm::vec2 pos) : Piece(color,pos){
+
+    std::vector<glm::vec3> forme = {
+       glm::vec3(-0.15f, -0.15f, 0.0f),
+       glm::vec3( 0.15f, -0.15f, 0.0f),
+       glm::vec3( 0.15f,  0.15f, 0.0f),
+       glm::vec3(-0.15f, -0.15f, 0.0f),
+       glm::vec3(-0.15f,  0.15f, 0.0f),
+       glm::vec3( 0.15f,  0.15f, 0.0f)
+    };
+
+    std::vector<glm::vec2> buffer_image = {
+       glm::vec2( 0,1),
+       glm::vec2( 1,1),
+       glm::vec2( 1,0),
+       glm::vec2( 0,1),
+       glm::vec2( 0,0),
+       glm::vec2( 1,0)
+    };
+}
 
 std::vector<glm::vec2> Bishop::MouvPossible() const{
     std::vector<glm::vec2> list_mouv;

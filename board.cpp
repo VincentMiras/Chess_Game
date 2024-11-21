@@ -29,3 +29,7 @@ void Board::move(Piece *piece_joue, glm::vec2 pos_joue){
         piece_joue->setPosition(pos_joue);
     }
 }
+
+void Board::addPiece(Piece* piece){
+    list_pieces.push_back(piece);
+}

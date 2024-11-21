@@ -9,6 +9,7 @@
 #include "queen.h"
 #include "king.h"
 #include "Piececolor.h"
+#include <iostream>
 
 class Game
 {

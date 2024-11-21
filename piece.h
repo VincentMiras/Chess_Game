@@ -17,6 +17,7 @@ public:
 
     PieceColor color;
     glm::vec2 pos;
+    std::vector<glm::vec3> forme;
 };
 
 #endif // PIECE_H

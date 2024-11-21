@@ -47,4 +47,5 @@ void Game::Make_a_move(){
     glm::vec2 move= moves[rand()% moves.size()];
     etat_jeu.move(piece_bouge,move);
     tour=(tour==PieceColor::WHITE)? PieceColor::BLACK:PieceColor::WHITE;
+    std::cout<<"Piece bougé ";
 }
