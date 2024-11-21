@@ -12,7 +12,7 @@ public:
     ~Board();
     Piece* getPiece(glm::vec2 &pos);
     std::vector<Piece*> getPieces();
-    void move(Piece* piece_joue, glm::vec2 pos_joue);
+    bool move(Piece* piece_joue, glm::vec2 pos_joue);
     void addPiece(Piece* piece);
 
     std::vector<Piece*> list_pieces;

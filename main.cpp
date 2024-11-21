@@ -112,15 +112,10 @@ int main()
 
     Object o(vb_board, g_uv_buffer_data, path+"/textures/damier2.jpg");
 
-
     Game partie=Game();
     partie.initialise_game();
 
-
-
-
 /////////////////////////Boucle de rendu/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     // Assure que l'on peut capturer les touche de clavier
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);

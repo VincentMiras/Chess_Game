@@ -56,8 +56,10 @@ void Game::Make_a_move(){
     std::vector<glm::vec2> moves = piece_bouge->MouvPossible();
     if (!moves.empty()){
         glm::vec2 move= moves[rand()% moves.size()];
-        etat_jeu.move(piece_bouge,move);
-        std::cout<<"Piece bougé " +colorToString(piece_bouge->color);
-        tour=(tour==PieceColor::WHITE)? PieceColor::BLACK:PieceColor::WHITE;
+        bool valid_mouv=etat_jeu.move(piece_bouge,move);
+        if (valid_mouv==true){
+            std::cout<<"Piece bougé " +colorToString(piece_bouge->color);
+            tour=(tour==PieceColor::WHITE)? PieceColor::BLACK:PieceColor::WHITE;
+        }
     }
 }
