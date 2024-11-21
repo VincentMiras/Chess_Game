@@ -27,6 +27,7 @@ std::vector<Piece*> Board::getPieces(){
 void Board::move(Piece *piece_joue, glm::vec2 pos_joue){
     if (getPiece(pos_joue)==nullptr){
         piece_joue->setPosition(pos_joue);
+        piece_joue->updateforme();
     }
 }
 

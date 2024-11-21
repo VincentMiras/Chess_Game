@@ -14,7 +14,7 @@ void Game::initialise_game(){
     }
 
     //pieces blanches
-    etat_jeu.addPiece(new Rook(PieceColor::WHITE, glm::vec2(PieceColor::BLACK, 1)));
+    etat_jeu.addPiece(new Rook(PieceColor::WHITE, glm::vec2(1, 1)));
     etat_jeu.addPiece(new Knight(PieceColor::WHITE, glm::vec2(2, 1)));
     etat_jeu.addPiece(new Bishop(PieceColor::WHITE, glm::vec2(3, 1)));
     etat_jeu.addPiece(new Queen(PieceColor::WHITE, glm::vec2(4, 1)));
@@ -24,7 +24,7 @@ void Game::initialise_game(){
     etat_jeu.addPiece(new Rook(PieceColor::WHITE, glm::vec2(8, 1)));
 
     //pieces noires
-    etat_jeu.addPiece(new Rook(PieceColor::BLACK, glm::vec2(PieceColor::BLACK, 8)));
+    etat_jeu.addPiece(new Rook(PieceColor::BLACK, glm::vec2(1, 8)));
     etat_jeu.addPiece(new Knight(PieceColor::BLACK, glm::vec2(2, 8)));
     etat_jeu.addPiece(new Bishop(PieceColor::BLACK, glm::vec2(3, 8)));
     etat_jeu.addPiece(new Queen(PieceColor::BLACK, glm::vec2(4, 8)));
@@ -32,6 +32,16 @@ void Game::initialise_game(){
     etat_jeu.addPiece(new Bishop(PieceColor::BLACK, glm::vec2(6, 8)));
     etat_jeu.addPiece(new Knight(PieceColor::BLACK, glm::vec2(7, 8)));
     etat_jeu.addPiece(new Rook(PieceColor::BLACK, glm::vec2(8, 8)));
+}
+std::string colorToString(PieceColor color) {
+    switch (color) {
+    case PieceColor::WHITE:
+        return "WHITE";
+    case PieceColor::BLACK:
+        return "BLACK";
+    default:
+        return "UNKNOWN";
+    }
 }
 
 void Game::Make_a_move(){
@@ -44,8 +54,10 @@ void Game::Make_a_move(){
     }
     Piece* piece_bouge= piece_en_jeu[rand()% piece_en_jeu.size()];
     std::vector<glm::vec2> moves = piece_bouge->MouvPossible();
-    glm::vec2 move= moves[rand()% moves.size()];
-    etat_jeu.move(piece_bouge,move);
-    tour=(tour==PieceColor::WHITE)? PieceColor::BLACK:PieceColor::WHITE;
-    std::cout<<"Piece bougé ";
+    if (!moves.empty()){
+        glm::vec2 move= moves[rand()% moves.size()];
+        etat_jeu.move(piece_bouge,move);
+        std::cout<<"Piece bougé " +colorToString(piece_bouge->color);
+        tour=(tour==PieceColor::WHITE)? PieceColor::BLACK:PieceColor::WHITE;
+    }
 }

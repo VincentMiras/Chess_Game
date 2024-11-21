@@ -14,10 +14,14 @@ public:
     glm::vec2 getPos();
     PieceColor getColor() const;
     void setPosition(glm::vec2 &pos);
+    virtual void updateforme() = 0;
+
 
     PieceColor color;
     glm::vec2 pos;
-    std::vector<glm::vec3> forme;
+    virtual std::vector<glm::vec3> getforme() const = 0;
+    virtual std::vector<glm::vec2> getbuffer_image() const = 0;
+
 };
 
 #endif // PIECE_H
