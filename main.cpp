@@ -4,11 +4,14 @@
 #include <GLFW/glfw3.h>
 #include "glm/glm.hpp"
 #include <vector>
+#include <filesystem>
 
 #include "vertexbuffer.h"
 #include "vertexarray.h"
 #include "shader.h"
 #include "renderer.h"
+#include "board.h"
+#include "game.h"
 
 
 
@@ -16,7 +19,7 @@ using namespace std;
 
 int main()
 {
-    string path = "/home/formation/coursopenGL/projet_echec/OpenGL_API_V4";
+    string path = "/home/VIncent/tp_cours//OpenGL_API_V4";
 /////////////////////////Initialisation de GLFW/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if(!glfwInit()){
@@ -87,13 +90,13 @@ int main()
 /////////////////////////Création des formes à afficher/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    std::vector<glm::vec3> g_vertex_buffer_data = {
-       glm::vec3(-1.0f, -1.0f, 0.0f),
-       glm::vec3( 1.0f, -1.0f, 0.0f),
-       glm::vec3( 1.0f,  1.0f, 0.0f),
-       glm::vec3(-1.0f, -1.0f, 0.0f),
-       glm::vec3(-1.0f,  1.0f, 0.0f),
-       glm::vec3( 1.0f,  1.0f, 0.0f)
+    std::vector<glm::vec3> vb_board = {
+       glm::vec3(-0.8f, -0.8f, 0.0f),
+       glm::vec3( 0.8f, -0.8f, 0.0f),
+       glm::vec3( 0.8f,  0.8f, 0.0f),
+       glm::vec3(-0.8f, -0.8f, 0.0f),
+       glm::vec3(-0.8f,  0.8f, 0.0f),
+       glm::vec3( 0.8f,  0.8f, 0.0f)
     };
 
     std::vector<glm::vec2> g_uv_buffer_data = {
@@ -104,14 +107,15 @@ int main()
        glm::vec2( 0,0),
        glm::vec2( 1,0)
     };
+    std::string texture_blanc = path+"/textures/white.jpg";
+    std::string texture_noir = path+"/textures/black.jpg";
 
-    Object o(g_vertex_buffer_data, g_uv_buffer_data, path+"/textures/damier.jpg");
+    Object o(vb_board, g_uv_buffer_data, path+"/textures/damier2.jpg");
 
-
-
+    Game partie=Game();
+    partie.initialise_game();
 
 /////////////////////////Boucle de rendu/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     // Assure que l'on peut capturer les touche de clavier
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -119,29 +123,33 @@ int main()
     //On indique la couleur de fond
     glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 
-    glm::vec3 delta(0,0,0);
-
-    shader.setUniform3fv("delta", delta);
-
 
     while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window)){
-
-//        delta.x+=(rand()%5-2.)/100.;
-//        delta.y+=(rand()%5-2.)/100.;
-//        delta.z+=(rand()%5-2.)/100.;
-
-        shader.setUniform3fv("delta", delta);
 
 
         ////////////////On commence par vider les buffers///////////////
         renderer.Clear();
         renderer.Draw(va, o, shader);
 
+        for (Piece* piece:partie.etat_jeu.list_pieces){
+            if (piece->color==PieceColor::WHITE){
+                Object p(piece->getforme(), piece->getbuffer_image(), texture_blanc);
+                renderer.Draw(va, p, shader);
+            }
+            else{
+                Object p(piece->getforme(), piece->getbuffer_image(), texture_noir);
+                renderer.Draw(va, p, shader);
+            }
+        }
+
+        partie.Make_a_move();
+
         ////////////////Partie rafraichissement de l'image et des évènements///////////////
         //Swap buffers : frame refresh
         glfwSwapBuffers(window);
         //get the events
         glfwPollEvents();
+        glfwWaitEventsTimeout(1.0);
     }
     glfwTerminate();
 

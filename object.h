@@ -13,7 +13,7 @@
 class Object
 {
 public:
-    Object(std::vector< glm::vec3 > vertices, std::vector< glm::vec2 > uvs, std::string texturePath);
+    Object(std::vector< glm::vec3 > vertices, std::vector< glm::vec2 > uvs, std::string texturePath="");
     ~Object();
     void Bind() const;
     void Unbind() const;
