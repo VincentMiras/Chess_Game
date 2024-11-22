@@ -33,16 +33,6 @@ void Game::initialise_game(){
     etat_jeu.addPiece(new Knight(PieceColor::BLACK, glm::vec2(7, 8)));
     etat_jeu.addPiece(new Rook(PieceColor::BLACK, glm::vec2(8, 8)));
 }
-std::string colorToString(PieceColor color) {
-    switch (color) {
-    case PieceColor::WHITE:
-        return "WHITE";
-    case PieceColor::BLACK:
-        return "BLACK";
-    default:
-        return "UNKNOWN";
-    }
-}
 
 void Game::Make_a_move(){
     std::vector<Piece*> piece_en_jeu;
@@ -58,7 +48,6 @@ void Game::Make_a_move(){
         glm::vec2 move= moves[rand()% moves.size()];
         bool valid_mouv=etat_jeu.move(piece_bouge,move);
         if (valid_mouv==true){
-            std::cout<<"Piece bougé " +colorToString(piece_bouge->color);
             tour=(tour==PieceColor::WHITE)? PieceColor::BLACK:PieceColor::WHITE;
         }
     }
