@@ -1,3 +1,3 @@
-/home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles/tp1_opengl.dir
+/home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles/chess.dir
 /home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles/edit_cache.dir
 /home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir

@@ -9,16 +9,13 @@
 
 
 
-Object::Object(std::vector<glm::vec3> vertices, std::vector<glm::vec2> uvs, std::string texturePath):m_vb(0), m_uvsb(0), m_texture(0)
+Object::Object(std::vector<glm::vec3> vertices, std::vector<glm::vec2> uvs, std::string texturePath):m_vb(0), m_uvsb(0), m_texture(0), position(0,0,0), rotationAngles(0,0,0)
 {
 
      m_vb = new VertexBuffer(vertices);
      m_uvsb = new UVBuffer(uvs);
 
-     if (!texturePath.empty())
-         {
-             m_texture = new Texture(texturePath);
-         }
+     m_texture = new Texture(texturePath);
 
 }
 
@@ -49,4 +46,12 @@ void Object::Unbind() const
 void Object::Draw() const
 {
     GLCall(glDrawArrays(GL_TRIANGLES,0, m_vb->getSize()));
+}
+
+glm::mat4 Object::getModelMatrix()
+{
+    glm::mat4 m = glm::rotate(glm::translate(glm::mat4(1), position), rotationAngles.x, glm::vec3(1,0,0));
+    m=glm::rotate(m, rotationAngles.y, glm::vec3(0,1,0));
+    m=glm::rotate(m, rotationAngles.z, glm::vec3(0,0,1));
+    return m;
 }
