@@ -96,21 +96,47 @@ int main()
 
 
     std::vector<glm::vec3> vb_board = {
-        glm::vec3(-0.8f, 0.0f, -0.8f),
-        glm::vec3( 0.8f, 0.0f, -0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f,  0.0f, -0.8f),
         glm::vec3( 0.8f,  0.0f, 0.8f),
-        glm::vec3(-0.8f, 0.0f, -0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
         glm::vec3(-0.8f,  0.0f, 0.8f),
         glm::vec3( 0.8f,  0.0f, 0.8f),
 
         glm::vec3(-0.8f, -0.2f, -0.8f),
         glm::vec3( 0.8f, -0.2f, -0.8f),
-        glm::vec3( 0.8f, -0.2f, 0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
         glm::vec3(-0.8f, -0.2f, -0.8f),
-        glm::vec3(-0.8f, -0.2f, 0.8f),
-        glm::vec3( 0.8f, -0.2f, 0.8f)
+        glm::vec3(-0.8f, -0.2f,  0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
 
+        glm::vec3(-0.8f, -0.2f, -0.8f),
+        glm::vec3( 0.8f, -0.2f, -0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f, -0.2f, -0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
 
+        glm::vec3(-0.8f, -0.2f,  0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f,  0.0f,  0.8f),
+        glm::vec3( 0.8f,  0.0f,  0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f,  0.0f,  0.8f),
+
+        glm::vec3( 0.8f, -0.2f, -0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3( 0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f,  0.0f,  0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3( 0.8f,  0.0f, -0.8f),
+
+        glm::vec3(-0.8f, -0.2f, -0.8f),
+        glm::vec3(-0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3(-0.8f,  0.0f,  0.8f),
+        glm::vec3(-0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f)
     };
 
     std::vector<glm::vec2> g_uv_buffer_data = {
