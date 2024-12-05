@@ -101,8 +101,9 @@ int main()
         glm::vec3( 0.8f,  0.0f, 0.8f),
         glm::vec3(-0.8f,  0.0f, -0.8f),
         glm::vec3(-0.8f,  0.0f, 0.8f),
-        glm::vec3( 0.8f,  0.0f, 0.8f),
-
+        glm::vec3( 0.8f,  0.0f, 0.8f)
+    };
+    std::vector<glm::vec3> vb_bordure = {
         glm::vec3(-0.8f, -0.2f, -0.8f),
         glm::vec3( 0.8f, -0.2f, -0.8f),
         glm::vec3( 0.8f, -0.2f,  0.8f),
@@ -147,10 +148,45 @@ int main()
         glm::vec2( 0,0),
         glm::vec2( 1,0)
     };
-    std::string texture_blanc = path+"/textures/white.jpg";
-    std::string texture_noir = path+"/textures/black.jpg";
+
+    std::vector<glm::vec2> g_uv_buffer_data_bord = {
+        glm::vec2( 0,1),
+        glm::vec2( 1,1),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 0,0),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 1,1),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 0,0),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 1,1),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 0,0),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 1,1),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 0,0),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 1,1),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 0,0),
+        glm::vec2( 1,0)
+    };
+
+    std::string texture_blanc = path+"/textures/marbre_white.jpg";
+    std::string texture_noir = path+"/textures/marbre_black.jpg";
 
     Object o(vb_board, g_uv_buffer_data, path+"/textures/damier2.jpg");
+    Object ob(vb_bordure, g_uv_buffer_data_bord, path+"/textures/bois.jpg");
 
     Game partie=Game();
     partie.initialise_game();
@@ -202,6 +238,7 @@ int main()
         ////////////////On commence par vider les buffers///////////////
         renderer.Clear();
         renderer.Draw(va, o, shader);
+        renderer.Draw(va, ob, shader);
 
         for (Piece* piece:partie.etat_jeu.list_pieces){
             if (piece->color==PieceColor::WHITE){

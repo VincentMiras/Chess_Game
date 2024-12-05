@@ -20,12 +20,15 @@ Pawn::Pawn(PieceColor color, glm::vec2 pos) : Piece(color,pos){
     };
 
     buffer_image = {
-       glm::vec2( 0,1),
-       glm::vec2( 1,1),
-       glm::vec2( 1,0),
-       glm::vec2( 0,1),
-       glm::vec2( 0,0),
-       glm::vec2( 1,0)
+        glm::vec2( 0,1),
+        glm::vec2( 1,1),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 0,0),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 1,1),
+        glm::vec2( 1,0)
     };
 
 }
