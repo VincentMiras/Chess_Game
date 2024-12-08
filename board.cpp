@@ -30,6 +30,7 @@ bool Board::move(Piece *piece_joue, glm::vec2 pos_joue){
         piece_joue->updateforme();
         return true;
     }
+    /*
     if (getPiece(pos_joue)->color!=piece_joue->color){
         std::cout<<(getPiece(pos_joue)->color!=piece_joue->color);
         piece_joue->setPosition(pos_joue);
@@ -37,6 +38,7 @@ bool Board::move(Piece *piece_joue, glm::vec2 pos_joue){
         //sortir la piece mangée de la liste
         return true;
     }
+*/
     return false;
 }
 
