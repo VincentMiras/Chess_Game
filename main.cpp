@@ -112,11 +112,11 @@ int main()
         glm::vec3( 0.8f, -0.2f,  0.8f),
 
         glm::vec3(-0.8f, -0.2f, -0.8f),
-        glm::vec3( 0.8f, -0.2f, -0.8f),
         glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f, -0.2f, -0.8f),
         glm::vec3( 0.8f,  0.0f, -0.8f),
-        glm::vec3( 0.8f, -0.2f, -0.8f),
         glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f, -0.2f, -0.8f),
 
         glm::vec3(-0.8f, -0.2f,  0.8f),
         glm::vec3( 0.8f, -0.2f,  0.8f),
@@ -150,36 +150,58 @@ int main()
     };
 
     std::vector<glm::vec2> g_uv_buffer_data_bord = {
-        glm::vec2( 0,1),
-        glm::vec2( 1,1),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 0,0),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 1,1),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 0,0),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 1,1),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 0,0),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 1,1),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 0,0),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 1,1),
-        glm::vec2( 1,0),
-        glm::vec2( 0,1),
-        glm::vec2( 0,0),
-        glm::vec2( 1,0)
+        // Face 1 - XY bottom
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+
+        // Face 2 - XY top
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 1, 0),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+        glm::vec2( 1, 1),
+
+
+
+
+
+        // Face 3 - XZ bottom
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+
+        // Face 4 - XZ top
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+
+        // Face 5 - YZ bottom
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+
+        // Face 6 - YZ top
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1)
     };
 
     std::string texture_blanc = path+"/textures/marbre_white.jpg";
