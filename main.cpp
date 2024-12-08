@@ -4,14 +4,15 @@
 #include <GLFW/glfw3.h>
 #include "glm/glm.hpp"
 #include <vector>
-#include <filesystem>
 
 #include "vertexbuffer.h"
 #include "vertexarray.h"
 #include "shader.h"
 #include "renderer.h"
-#include "board.h"
+#include "camera.h"
+#include "navigationcontrols.h"
 #include "game.h"
+#include "board.h"
 
 
 
@@ -19,7 +20,7 @@ using namespace std;
 
 int main()
 {
-    string path = "/home/VIncent/tp_cours//OpenGL_API_V4";
+    string path = "/home/VIncent/tp_cours/OpenGL_API_V4";
 /////////////////////////Initialisation de GLFW/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if(!glfwInit()){
@@ -44,8 +45,8 @@ int main()
     int height=600;
 
     //On récupère les dimensions de l'écran pour créer la fenètre
-    /*GLFWmonitor* primary = glfwGetPrimaryMonitor();
-    glfwGetMonitorWorkarea(primary,nullptr,nullptr, &width, &height);*/
+    GLFWmonitor* primary = glfwGetPrimaryMonitor();
+    glfwGetMonitorWorkarea(primary,nullptr,nullptr, &width, &height);
 
     //Enfin on crée la fenêtre
     GLFWwindow* window = glfwCreateWindow(width,height,"OpenGL_API",NULL,NULL);
@@ -86,36 +87,147 @@ int main()
     VertexArray va;
     va.Bind();
 
+/////////////////////////On crée la camera et les contrôles/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Camera cam(width, height);
+    NavigationControls controls(window, &cam);
 
 /////////////////////////Création des formes à afficher/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     std::vector<glm::vec3> vb_board = {
-       glm::vec3(-0.8f, -0.8f, 0.0f),
-       glm::vec3( 0.8f, -0.8f, 0.0f),
-       glm::vec3( 0.8f,  0.8f, 0.0f),
-       glm::vec3(-0.8f, -0.8f, 0.0f),
-       glm::vec3(-0.8f,  0.8f, 0.0f),
-       glm::vec3( 0.8f,  0.8f, 0.0f)
+        glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f,  0.0f, 0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3(-0.8f,  0.0f, 0.8f),
+        glm::vec3( 0.8f,  0.0f, 0.8f)
+    };
+    std::vector<glm::vec3> vb_bordure = {
+        glm::vec3(-0.8f, -0.2f, -0.8f),
+        glm::vec3( 0.8f, -0.2f, -0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f, -0.2f, -0.8f),
+        glm::vec3(-0.8f, -0.2f,  0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+
+        glm::vec3(-0.8f, -0.2f, -0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f, -0.2f, -0.8f),
+        glm::vec3( 0.8f,  0.0f, -0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f, -0.2f, -0.8f),
+
+        glm::vec3(-0.8f, -0.2f,  0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f,  0.0f,  0.8f),
+        glm::vec3( 0.8f,  0.0f,  0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f,  0.0f,  0.8f),
+
+        glm::vec3( 0.8f, -0.2f, -0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3( 0.8f,  0.0f, -0.8f),
+        glm::vec3( 0.8f,  0.0f,  0.8f),
+        glm::vec3( 0.8f, -0.2f,  0.8f),
+        glm::vec3( 0.8f,  0.0f, -0.8f),
+
+        glm::vec3(-0.8f, -0.2f, -0.8f),
+        glm::vec3(-0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f),
+        glm::vec3(-0.8f,  0.0f,  0.8f),
+        glm::vec3(-0.8f, -0.2f,  0.8f),
+        glm::vec3(-0.8f,  0.0f, -0.8f)
     };
 
     std::vector<glm::vec2> g_uv_buffer_data = {
-       glm::vec2( 0,1),
-       glm::vec2( 1,1),
-       glm::vec2( 1,0),
-       glm::vec2( 0,1),
-       glm::vec2( 0,0),
-       glm::vec2( 1,0)
+        glm::vec2( 0,1),
+        glm::vec2( 1,1),
+        glm::vec2( 1,0),
+        glm::vec2( 0,1),
+        glm::vec2( 0,0),
+        glm::vec2( 1,0)
     };
-    std::string texture_blanc = path+"/textures/white.jpg";
-    std::string texture_noir = path+"/textures/black.jpg";
+
+    std::vector<glm::vec2> g_uv_buffer_data_bord = {
+        // Face 1 - XY bottom
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+
+        // Face 2 - XY top
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 1, 0),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+        glm::vec2( 1, 1),
+
+
+
+
+
+        // Face 3 - XZ bottom
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+
+        // Face 4 - XZ top
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+
+        // Face 5 - YZ bottom
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1),
+
+        // Face 6 - YZ top
+        glm::vec2( 0, 0),
+        glm::vec2( 1, 0),
+        glm::vec2( 1, 1),
+        glm::vec2( 0, 0),
+        glm::vec2( 0, 1),
+        glm::vec2( 1, 1)
+    };
+
+    std::string texture_blanc = path+"/textures/marbre_white.jpg";
+    std::string texture_noir = path+"/textures/marbre_black.jpg";
 
     Object o(vb_board, g_uv_buffer_data, path+"/textures/damier2.jpg");
+    Object ob(vb_bordure, g_uv_buffer_data_bord, path+"/textures/bois.jpg");
 
     Game partie=Game();
     partie.initialise_game();
 
+
+/////////////////////////Création de la matrice MVP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    cam.computeMatrices(width, height);
+    glm::mat4 m = o.getModelMatrix();
+    glm::mat4 v = cam.getViewMatrix();
+    glm::mat4 p = cam.getProjectionMatrix();
+
+    glm::mat4 mvp = p*v*m;
+
+    shader.setUniformMat4f("MVP", mvp);
+
+
 /////////////////////////Boucle de rendu/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     // Assure que l'on peut capturer les touche de clavier
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -123,13 +235,32 @@ int main()
     //On indique la couleur de fond
     glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 
+    //On autorise les tests de profondeur
+
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+
+    float lastTime = glfwGetTime();
+    float currentTime, deltaTime;
 
     while(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window)){
+        currentTime = glfwGetTime();
+        deltaTime = currentTime-lastTime;
+        lastTime = currentTime;
 
+        controls.update(deltaTime, &shader);
+        cam.computeMatrices(width, height);
+        m = o.getModelMatrix();
+        v = cam.getViewMatrix();
+        p = cam.getProjectionMatrix();
+
+        mvp = p*v*m;
+        shader.setUniformMat4f("MVP", mvp);
 
         ////////////////On commence par vider les buffers///////////////
         renderer.Clear();
         renderer.Draw(va, o, shader);
+        renderer.Draw(va, ob, shader);
 
         for (Piece* piece:partie.etat_jeu.list_pieces){
             if (piece->color==PieceColor::WHITE){
@@ -149,7 +280,6 @@ int main()
         glfwSwapBuffers(window);
         //get the events
         glfwPollEvents();
-        glfwWaitEventsTimeout(1.0);
     }
     glfwTerminate();
 

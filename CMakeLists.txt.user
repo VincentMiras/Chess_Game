@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 13.0.0, 2024-11-27T23:14:59. -->
+<!-- Written by QtCreator 13.0.0, 2024-11-29T07:03:03. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -393,9 +393,9 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">tp1_opengl</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.tp1_opengl</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">tp1_opengl</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">chess</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.chess</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">chess</value>
     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>

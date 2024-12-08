@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/tp1_opengl.dir/all
+all: CMakeFiles/chess.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/tp1_opengl.dir/clean
+clean: CMakeFiles/chess.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/tp1_opengl.dir
+# Target rules for target CMakeFiles/chess.dir
 
 # All Build rule for target.
-CMakeFiles/tp1_opengl.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target tp1_opengl"
-.PHONY : CMakeFiles/tp1_opengl.dir/all
+CMakeFiles/chess.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 "Built target chess"
+.PHONY : CMakeFiles/chess.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/tp1_opengl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles 19
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tp1_opengl.dir/all
+CMakeFiles/chess.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/chess.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/VIncent/tp_cours/OpenGL_API_V4/build/Desktop-Debug/CMakeFiles 0
-.PHONY : CMakeFiles/tp1_opengl.dir/rule
+.PHONY : CMakeFiles/chess.dir/rule
 
 # Convenience name for target.
-tp1_opengl: CMakeFiles/tp1_opengl.dir/rule
-.PHONY : tp1_opengl
+chess: CMakeFiles/chess.dir/rule
+.PHONY : chess
 
 # clean rule for target.
-CMakeFiles/tp1_opengl.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/clean
-.PHONY : CMakeFiles/tp1_opengl.dir/clean
+CMakeFiles/chess.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/clean
+.PHONY : CMakeFiles/chess.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

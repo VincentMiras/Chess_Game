@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named tp1_opengl
+# Target rules for targets named chess
 
 # Build rule for target.
-tp1_opengl: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tp1_opengl
-.PHONY : tp1_opengl
+chess: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 chess
+.PHONY : chess
 
 # fast build rule for target.
-tp1_opengl/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/build
-.PHONY : tp1_opengl/fast
+chess/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/build
+.PHONY : chess/fast
 
 bishop.o: bishop.cpp.o
 .PHONY : bishop.o
 
 # target to build an object file
 bishop.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/bishop.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/bishop.cpp.o
 .PHONY : bishop.cpp.o
 
 bishop.i: bishop.cpp.i
@@ -142,7 +142,7 @@ bishop.i: bishop.cpp.i
 
 # target to preprocess a source file
 bishop.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/bishop.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/bishop.cpp.i
 .PHONY : bishop.cpp.i
 
 bishop.s: bishop.cpp.s
@@ -150,7 +150,7 @@ bishop.s: bishop.cpp.s
 
 # target to generate assembly for a file
 bishop.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/bishop.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/bishop.cpp.s
 .PHONY : bishop.cpp.s
 
 board.o: board.cpp.o
@@ -158,7 +158,7 @@ board.o: board.cpp.o
 
 # target to build an object file
 board.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/board.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/board.cpp.o
 .PHONY : board.cpp.o
 
 board.i: board.cpp.i
@@ -166,7 +166,7 @@ board.i: board.cpp.i
 
 # target to preprocess a source file
 board.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/board.cpp.i
 .PHONY : board.cpp.i
 
 board.s: board.cpp.s
@@ -174,15 +174,87 @@ board.s: board.cpp.s
 
 # target to generate assembly for a file
 board.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/board.cpp.s
 .PHONY : board.cpp.s
+
+camera.o: camera.cpp.o
+.PHONY : camera.o
+
+# target to build an object file
+camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/camera.cpp.o
+.PHONY : camera.cpp.o
+
+camera.i: camera.cpp.i
+.PHONY : camera.i
+
+# target to preprocess a source file
+camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/camera.cpp.i
+.PHONY : camera.cpp.i
+
+camera.s: camera.cpp.s
+.PHONY : camera.s
+
+# target to generate assembly for a file
+camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/camera.cpp.s
+.PHONY : camera.cpp.s
+
+controls.o: controls.cpp.o
+.PHONY : controls.o
+
+# target to build an object file
+controls.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/controls.cpp.o
+.PHONY : controls.cpp.o
+
+controls.i: controls.cpp.i
+.PHONY : controls.i
+
+# target to preprocess a source file
+controls.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/controls.cpp.i
+.PHONY : controls.cpp.i
+
+controls.s: controls.cpp.s
+.PHONY : controls.s
+
+# target to generate assembly for a file
+controls.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/controls.cpp.s
+.PHONY : controls.cpp.s
+
+fpscontrols.o: fpscontrols.cpp.o
+.PHONY : fpscontrols.o
+
+# target to build an object file
+fpscontrols.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/fpscontrols.cpp.o
+.PHONY : fpscontrols.cpp.o
+
+fpscontrols.i: fpscontrols.cpp.i
+.PHONY : fpscontrols.i
+
+# target to preprocess a source file
+fpscontrols.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/fpscontrols.cpp.i
+.PHONY : fpscontrols.cpp.i
+
+fpscontrols.s: fpscontrols.cpp.s
+.PHONY : fpscontrols.s
+
+# target to generate assembly for a file
+fpscontrols.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/fpscontrols.cpp.s
+.PHONY : fpscontrols.cpp.s
 
 game.o: game.cpp.o
 .PHONY : game.o
 
 # target to build an object file
 game.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/game.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/game.cpp.o
 .PHONY : game.cpp.o
 
 game.i: game.cpp.i
@@ -190,7 +262,7 @@ game.i: game.cpp.i
 
 # target to preprocess a source file
 game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/game.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/game.cpp.i
 .PHONY : game.cpp.i
 
 game.s: game.cpp.s
@@ -198,7 +270,7 @@ game.s: game.cpp.s
 
 # target to generate assembly for a file
 game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/game.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/game.cpp.s
 .PHONY : game.cpp.s
 
 king.o: king.cpp.o
@@ -206,7 +278,7 @@ king.o: king.cpp.o
 
 # target to build an object file
 king.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/king.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/king.cpp.o
 .PHONY : king.cpp.o
 
 king.i: king.cpp.i
@@ -214,7 +286,7 @@ king.i: king.cpp.i
 
 # target to preprocess a source file
 king.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/king.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/king.cpp.i
 .PHONY : king.cpp.i
 
 king.s: king.cpp.s
@@ -222,7 +294,7 @@ king.s: king.cpp.s
 
 # target to generate assembly for a file
 king.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/king.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/king.cpp.s
 .PHONY : king.cpp.s
 
 knight.o: knight.cpp.o
@@ -230,7 +302,7 @@ knight.o: knight.cpp.o
 
 # target to build an object file
 knight.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/knight.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/knight.cpp.o
 .PHONY : knight.cpp.o
 
 knight.i: knight.cpp.i
@@ -238,7 +310,7 @@ knight.i: knight.cpp.i
 
 # target to preprocess a source file
 knight.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/knight.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/knight.cpp.i
 .PHONY : knight.cpp.i
 
 knight.s: knight.cpp.s
@@ -246,7 +318,7 @@ knight.s: knight.cpp.s
 
 # target to generate assembly for a file
 knight.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/knight.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/knight.cpp.s
 .PHONY : knight.cpp.s
 
 main.o: main.cpp.o
@@ -254,7 +326,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -262,7 +334,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -270,15 +342,39 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+navigationcontrols.o: navigationcontrols.cpp.o
+.PHONY : navigationcontrols.o
+
+# target to build an object file
+navigationcontrols.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/navigationcontrols.cpp.o
+.PHONY : navigationcontrols.cpp.o
+
+navigationcontrols.i: navigationcontrols.cpp.i
+.PHONY : navigationcontrols.i
+
+# target to preprocess a source file
+navigationcontrols.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/navigationcontrols.cpp.i
+.PHONY : navigationcontrols.cpp.i
+
+navigationcontrols.s: navigationcontrols.cpp.s
+.PHONY : navigationcontrols.s
+
+# target to generate assembly for a file
+navigationcontrols.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/navigationcontrols.cpp.s
+.PHONY : navigationcontrols.cpp.s
 
 object.o: object.cpp.o
 .PHONY : object.o
 
 # target to build an object file
 object.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/object.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/object.cpp.o
 .PHONY : object.cpp.o
 
 object.i: object.cpp.i
@@ -286,7 +382,7 @@ object.i: object.cpp.i
 
 # target to preprocess a source file
 object.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/object.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/object.cpp.i
 .PHONY : object.cpp.i
 
 object.s: object.cpp.s
@@ -294,7 +390,7 @@ object.s: object.cpp.s
 
 # target to generate assembly for a file
 object.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/object.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/object.cpp.s
 .PHONY : object.cpp.s
 
 pawn.o: pawn.cpp.o
@@ -302,7 +398,7 @@ pawn.o: pawn.cpp.o
 
 # target to build an object file
 pawn.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/pawn.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/pawn.cpp.o
 .PHONY : pawn.cpp.o
 
 pawn.i: pawn.cpp.i
@@ -310,7 +406,7 @@ pawn.i: pawn.cpp.i
 
 # target to preprocess a source file
 pawn.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/pawn.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/pawn.cpp.i
 .PHONY : pawn.cpp.i
 
 pawn.s: pawn.cpp.s
@@ -318,7 +414,7 @@ pawn.s: pawn.cpp.s
 
 # target to generate assembly for a file
 pawn.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/pawn.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/pawn.cpp.s
 .PHONY : pawn.cpp.s
 
 piece.o: piece.cpp.o
@@ -326,7 +422,7 @@ piece.o: piece.cpp.o
 
 # target to build an object file
 piece.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/piece.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/piece.cpp.o
 .PHONY : piece.cpp.o
 
 piece.i: piece.cpp.i
@@ -334,7 +430,7 @@ piece.i: piece.cpp.i
 
 # target to preprocess a source file
 piece.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/piece.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/piece.cpp.i
 .PHONY : piece.cpp.i
 
 piece.s: piece.cpp.s
@@ -342,7 +438,7 @@ piece.s: piece.cpp.s
 
 # target to generate assembly for a file
 piece.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/piece.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/piece.cpp.s
 .PHONY : piece.cpp.s
 
 queen.o: queen.cpp.o
@@ -350,7 +446,7 @@ queen.o: queen.cpp.o
 
 # target to build an object file
 queen.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/queen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/queen.cpp.o
 .PHONY : queen.cpp.o
 
 queen.i: queen.cpp.i
@@ -358,7 +454,7 @@ queen.i: queen.cpp.i
 
 # target to preprocess a source file
 queen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/queen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/queen.cpp.i
 .PHONY : queen.cpp.i
 
 queen.s: queen.cpp.s
@@ -366,7 +462,7 @@ queen.s: queen.cpp.s
 
 # target to generate assembly for a file
 queen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/queen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/queen.cpp.s
 .PHONY : queen.cpp.s
 
 renderer.o: renderer.cpp.o
@@ -374,7 +470,7 @@ renderer.o: renderer.cpp.o
 
 # target to build an object file
 renderer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/renderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/renderer.cpp.o
 .PHONY : renderer.cpp.o
 
 renderer.i: renderer.cpp.i
@@ -382,7 +478,7 @@ renderer.i: renderer.cpp.i
 
 # target to preprocess a source file
 renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/renderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/renderer.cpp.i
 .PHONY : renderer.cpp.i
 
 renderer.s: renderer.cpp.s
@@ -390,7 +486,7 @@ renderer.s: renderer.cpp.s
 
 # target to generate assembly for a file
 renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/renderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/renderer.cpp.s
 .PHONY : renderer.cpp.s
 
 rook.o: rook.cpp.o
@@ -398,7 +494,7 @@ rook.o: rook.cpp.o
 
 # target to build an object file
 rook.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/rook.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/rook.cpp.o
 .PHONY : rook.cpp.o
 
 rook.i: rook.cpp.i
@@ -406,7 +502,7 @@ rook.i: rook.cpp.i
 
 # target to preprocess a source file
 rook.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/rook.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/rook.cpp.i
 .PHONY : rook.cpp.i
 
 rook.s: rook.cpp.s
@@ -414,7 +510,7 @@ rook.s: rook.cpp.s
 
 # target to generate assembly for a file
 rook.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/rook.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/rook.cpp.s
 .PHONY : rook.cpp.s
 
 shader.o: shader.cpp.o
@@ -422,7 +518,7 @@ shader.o: shader.cpp.o
 
 # target to build an object file
 shader.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/shader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/shader.cpp.o
 .PHONY : shader.cpp.o
 
 shader.i: shader.cpp.i
@@ -430,7 +526,7 @@ shader.i: shader.cpp.i
 
 # target to preprocess a source file
 shader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/shader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/shader.cpp.i
 .PHONY : shader.cpp.i
 
 shader.s: shader.cpp.s
@@ -438,7 +534,7 @@ shader.s: shader.cpp.s
 
 # target to generate assembly for a file
 shader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/shader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/shader.cpp.s
 .PHONY : shader.cpp.s
 
 stb_image.o: stb_image.cpp.o
@@ -446,7 +542,7 @@ stb_image.o: stb_image.cpp.o
 
 # target to build an object file
 stb_image.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/stb_image.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/stb_image.cpp.o
 .PHONY : stb_image.cpp.o
 
 stb_image.i: stb_image.cpp.i
@@ -454,7 +550,7 @@ stb_image.i: stb_image.cpp.i
 
 # target to preprocess a source file
 stb_image.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/stb_image.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/stb_image.cpp.i
 .PHONY : stb_image.cpp.i
 
 stb_image.s: stb_image.cpp.s
@@ -462,7 +558,7 @@ stb_image.s: stb_image.cpp.s
 
 # target to generate assembly for a file
 stb_image.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/stb_image.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/stb_image.cpp.s
 .PHONY : stb_image.cpp.s
 
 texture.o: texture.cpp.o
@@ -470,7 +566,7 @@ texture.o: texture.cpp.o
 
 # target to build an object file
 texture.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/texture.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/texture.cpp.o
 .PHONY : texture.cpp.o
 
 texture.i: texture.cpp.i
@@ -478,7 +574,7 @@ texture.i: texture.cpp.i
 
 # target to preprocess a source file
 texture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/texture.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/texture.cpp.i
 .PHONY : texture.cpp.i
 
 texture.s: texture.cpp.s
@@ -486,7 +582,7 @@ texture.s: texture.cpp.s
 
 # target to generate assembly for a file
 texture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/texture.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/texture.cpp.s
 .PHONY : texture.cpp.s
 
 uvbuffer.o: uvbuffer.cpp.o
@@ -494,7 +590,7 @@ uvbuffer.o: uvbuffer.cpp.o
 
 # target to build an object file
 uvbuffer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/uvbuffer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/uvbuffer.cpp.o
 .PHONY : uvbuffer.cpp.o
 
 uvbuffer.i: uvbuffer.cpp.i
@@ -502,7 +598,7 @@ uvbuffer.i: uvbuffer.cpp.i
 
 # target to preprocess a source file
 uvbuffer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/uvbuffer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/uvbuffer.cpp.i
 .PHONY : uvbuffer.cpp.i
 
 uvbuffer.s: uvbuffer.cpp.s
@@ -510,7 +606,7 @@ uvbuffer.s: uvbuffer.cpp.s
 
 # target to generate assembly for a file
 uvbuffer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/uvbuffer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/uvbuffer.cpp.s
 .PHONY : uvbuffer.cpp.s
 
 vertexarray.o: vertexarray.cpp.o
@@ -518,7 +614,7 @@ vertexarray.o: vertexarray.cpp.o
 
 # target to build an object file
 vertexarray.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/vertexarray.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/vertexarray.cpp.o
 .PHONY : vertexarray.cpp.o
 
 vertexarray.i: vertexarray.cpp.i
@@ -526,7 +622,7 @@ vertexarray.i: vertexarray.cpp.i
 
 # target to preprocess a source file
 vertexarray.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/vertexarray.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/vertexarray.cpp.i
 .PHONY : vertexarray.cpp.i
 
 vertexarray.s: vertexarray.cpp.s
@@ -534,7 +630,7 @@ vertexarray.s: vertexarray.cpp.s
 
 # target to generate assembly for a file
 vertexarray.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/vertexarray.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/vertexarray.cpp.s
 .PHONY : vertexarray.cpp.s
 
 vertexbuffer.o: vertexbuffer.cpp.o
@@ -542,7 +638,7 @@ vertexbuffer.o: vertexbuffer.cpp.o
 
 # target to build an object file
 vertexbuffer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/vertexbuffer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/vertexbuffer.cpp.o
 .PHONY : vertexbuffer.cpp.o
 
 vertexbuffer.i: vertexbuffer.cpp.i
@@ -550,7 +646,7 @@ vertexbuffer.i: vertexbuffer.cpp.i
 
 # target to preprocess a source file
 vertexbuffer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/vertexbuffer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/vertexbuffer.cpp.i
 .PHONY : vertexbuffer.cpp.i
 
 vertexbuffer.s: vertexbuffer.cpp.s
@@ -558,7 +654,7 @@ vertexbuffer.s: vertexbuffer.cpp.s
 
 # target to generate assembly for a file
 vertexbuffer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp1_opengl.dir/build.make CMakeFiles/tp1_opengl.dir/vertexbuffer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/vertexbuffer.cpp.s
 .PHONY : vertexbuffer.cpp.s
 
 # Help Target
@@ -569,13 +665,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... tp1_opengl"
+	@echo "... chess"
 	@echo "... bishop.o"
 	@echo "... bishop.i"
 	@echo "... bishop.s"
 	@echo "... board.o"
 	@echo "... board.i"
 	@echo "... board.s"
+	@echo "... camera.o"
+	@echo "... camera.i"
+	@echo "... camera.s"
+	@echo "... controls.o"
+	@echo "... controls.i"
+	@echo "... controls.s"
+	@echo "... fpscontrols.o"
+	@echo "... fpscontrols.i"
+	@echo "... fpscontrols.s"
 	@echo "... game.o"
 	@echo "... game.i"
 	@echo "... game.s"
@@ -588,6 +693,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... navigationcontrols.o"
+	@echo "... navigationcontrols.i"
+	@echo "... navigationcontrols.s"
 	@echo "... object.o"
 	@echo "... object.i"
 	@echo "... object.s"
